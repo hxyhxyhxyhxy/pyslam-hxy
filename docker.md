@@ -632,3 +632,32 @@ docker run -p 8888:8080 ...
 
 
 `docker exec -it <容器名称或ID> /bin/bash`
+
+```
+docker run -it \
+  --name pyslam_x11 \
+  --net=host \
+  --gpus all \
+  --ipc=host \
+  --shm-size=16g \
+  --privileged \
+  -u $(id -u):$(id -g) \
+  -e SHELL=/bin/bash \
+  -e USER=hxy \
+   -e http_proxy=http://127.0.0.1:7890 \
+  -e https_proxy=http://127.0.0.1:7890 \
+  -e no_proxy=localhost,127.0.0.1,.local \
+  -e CONTAINER_NAME=pyslam_cuda \
+  -e DISPLAY="$DISPLAY" \
+  -e DOCKER=1 \
+  -e XAUTHORITY=/tmp/.docker.xauth \
+  -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+  -v /tmp/.docker.xauth:/tmp/.docker.xauth:rw \
+  -v /home/hxy/doctor/pyslam:/home/hxy/pyslam \
+  -v /media:/media \
+  -v /mnt:/mnt \
+  -v /dev:/dev \
+  -v /home/hxy/.ssh:/home/hxy/.ssh:ro \
+  pyslam:cuda \
+  bash
+```
