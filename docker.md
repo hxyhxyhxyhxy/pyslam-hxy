@@ -58,13 +58,6 @@ sudo systemctl restart docker
 21. docker container prune ----> 清理未使用的容器
 
 
-# 或者更安全地只和未使用的容器
-
-docker container prune
-
-
-
-
 # docker中环境配置
 - **注意** 一下操作都是进入docker中的操作或者构建容器时的操作
 
