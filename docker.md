@@ -42,6 +42,28 @@ sudo systemctl restart docker
 5. docker stop/start <容器ID> ---->  管理容器状态启动或停止
 6. docker exec -it <容器ID> /bin/bash ----> 进入正在运行的容器后台
 7. docker rmi <镜像> / docker rm <容器> ----> 删除镜像或者容器
+8. docker ps  ---->  查看所有正在运行的容器
+9. docker ps -a ----> 查看所有容器（包括已经停止的）
+10. docker inspect <容器名或ID> ---->  查看容器详细信息
+11. docker status ----> 查看容器资源使用情况（cpu、内存）
+12. docker logs <容器名或ID> ----> 查看容器日志
+13. docker top <容器名或ID> ---->  查看容器进程
+14. docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}"----> 查看运行中容器的详细信息（格式化)
+15. docker system df---->查看 Docker 占用的磁盘空间
+16. docker builder prune -f ----> 清理构建缓存（回收 42.96GB）
+17. docker container prune -f ----> 清理已停止的容器
+18. docker system prune -a --volumes -f ---->  一键清理所有未使用资源
+19. docker system prune -a --volumes----> 清理所有未使用的镜像、容器、网络和构建缓存
+20. docker image prune ----> 清理悬空镜像
+21. docker container prune ----> 清理未使用的容器
+
+
+# 或者更安全地只和未使用的容器
+
+docker container prune
+
+
+
 
 # docker中环境配置
 - **注意** 一下操作都是进入docker中的操作或者构建容器时的操作
