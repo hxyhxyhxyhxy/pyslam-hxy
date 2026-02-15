@@ -216,8 +216,8 @@ sudo mkdir -p /etc/apt
 echo 'Acquire::http::Proxy "http://172.17.0.1:7890";' | sudo tee /etc/apt/apt.conf.d/proxy.conf
 
 # git 代理
-git config --global http.proxy http://172.17.0.1:7890
-git config --global https.proxy http://172.17.0.1:7890
+git config --global http.proxy http://127.0.0.1:7890
+git config --global https.proxy http://127.0.0.1:7890
 ```
 # dockerfile实例分析
 ## dockerfile构建
